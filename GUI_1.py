@@ -25,27 +25,14 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 import mpld3
 
 def berechne_ausfuehrungszeit_poly3(dateigroesse):
-    # Polynomiale Koeffizienten
+ 
     poly3_func = np.poly1d([0.002837344127959294, -0.01756857059665256, -0.009283272964127013, 1.4001872034363547])
-    
-    # Logarithmus der Dateigröße berechnen
     log_dateigroesse = np.log(dateigroesse)
-    
-    # Polynomiale Funktion anwenden
     poly_wert = poly3_func(log_dateigroesse)
-    
-    # Exponentiation des Ergebnisses
     ausfuehrungszeit = np.exp(poly_wert)
-    
-    # Ausführungszeit in Minuten umrechnen
     ausfuehrungszeit_minuten = ausfuehrungszeit / 60
-    
-    # Auf halbe Minuten runden
     ausfuehrungszeit_gerundet = 0.5 * round(ausfuehrungszeit_minuten / 0.5)
-    
-    return ausfuehrungszeit_gerundet
-
-    
+   
     return ausfuehrungszeit_gerundet
 def human_readable_size(size, decimal_places=2):
     for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
